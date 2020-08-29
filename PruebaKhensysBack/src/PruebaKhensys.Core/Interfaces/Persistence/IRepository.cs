@@ -35,5 +35,11 @@ namespace PruebaKhensys.Core.Interfaces.Persistence
         void DeleteRange(IEnumerable<TEntity> entities);
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
 
+        //
+        Task<int> Count(IEnumerable<Expression<Func<TEntity, bool>>> predicates = null);
+        bool Exist(Expression<Func<TEntity, bool>> predicate);
+        Task<bool> ExistAsync(Expression<Func<TEntity, bool>> predicate);
+
+
     }
 }

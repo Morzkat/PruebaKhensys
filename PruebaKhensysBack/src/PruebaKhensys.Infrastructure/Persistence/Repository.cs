@@ -41,5 +41,11 @@ namespace PruebaKhensys.Infrastructure.Persistence
         public async Task UpdateAsync(TEntity entity) => await Task.Run(() => { _entities.Update(entity); });
         public void UpdateRange(IEnumerable<TEntity> entities) => _entities.UpdateRange(entities);
         public async Task UpdateRangeAsync(IEnumerable<TEntity> entities) => await Task.Run(() => { _entities.UpdateRange(entities); });
+
+        //
+        public async virtual Task<int> Count(IEnumerable<Expression<Func<TEntity, bool>>> predicates = null) => await _entities.Filter(predicates).CountAsync();
+        public bool Exist(Expression<Func<TEntity, bool>> predicate) => _entities.Any(predicate);
+        public async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> predicate) => await _entities.AnyAsync(predicate);
+
     }
 }
