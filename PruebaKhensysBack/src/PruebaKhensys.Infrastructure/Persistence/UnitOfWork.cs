@@ -1,5 +1,7 @@
 ﻿using PruebaKhensys.Core.Interfaces.Persistence;
 using PruebaKhensys.Core.Interfaces.Persistence.Repositories;
+using PruebaKhensys.Infrastructure.Persistence.Context;
+using PruebaKhensys.Infrastructure.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,15 +13,21 @@ namespace PruebaKhensys.Infrastructure.Persistence
     {
         public IRolesRepositories RolesRepositories { get; set; }
         public IEmployeesRepositories EmployeesRepositories { get; set; }
+        private readonly PruebaKhensysContext _pruebaKhensysContext;
 
-        public int Complete()
+        public UnitOfWork(PruebaKhensysContext pruebaKhensysContext)
         {
-            throw new NotImplementedException();
+            _pruebaKhensysContext = pruebaKhensysContext;
+
+            //TODO: 
+            RolesRepositories = new RoleRepository(_pruebaKhensysContext.Roles);
+            EmployeesRepositories = new EmployeeRepository(_pruebaKhensysContext.Employees);
         }
 
-        public Task<int> CompleteAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public int Complete() => _pruebaKhensysContext.SaveChanges();
+
+        public async Task<int> CompleteAsync() => await _pruebaKhensysContext.SaveChangesAsync();
+
+        public void Dispose() => _pruebaKhensysContext.Dispose();
     }
 }
