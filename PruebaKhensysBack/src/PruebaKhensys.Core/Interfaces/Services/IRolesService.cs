@@ -1,9 +1,5 @@
 ﻿using PruebaKhensys.Core.Entities.Common;
 using PruebaKhensys.Core.Entities.DTOS;
-using PruebaKhensys.Core.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PruebaKhensys.Core.Interfaces.Services

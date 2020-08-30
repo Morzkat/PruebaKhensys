@@ -2,9 +2,6 @@
 using PruebaKhensys.Core.Interfaces.Persistence.Repositories;
 using PruebaKhensys.Infrastructure.Persistence.Context;
 using PruebaKhensys.Infrastructure.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PruebaKhensys.Infrastructure.Persistence

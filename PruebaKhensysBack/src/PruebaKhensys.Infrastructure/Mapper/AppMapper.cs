@@ -1,5 +1,4 @@
 ﻿using AgileObjects.AgileMapper;
-using AgileObjects.AgileMapper.Configuration;
 using PruebaKhensys.Infrastructure.AppMapper.Configurations;
 
 namespace PruebaKhensys.Infrastructure.AppMapper
