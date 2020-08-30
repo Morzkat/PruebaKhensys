@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PruebaKhensys.Core.Entities.Models
 {
-    public class Employee
+    public class Employee : BaseModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public Role Role { get; set; }

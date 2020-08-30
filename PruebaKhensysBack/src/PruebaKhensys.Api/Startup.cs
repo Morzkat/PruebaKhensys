@@ -1,17 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using PruebaKhensys.Application.Services;
+using PruebaKhensys.Core.Entities.DTOS;
+using PruebaKhensys.Core.Interfaces.Persistence;
+using PruebaKhensys.Core.Interfaces.Services;
+using PruebaKhensys.Infrastructure.AppMapper;
+using PruebaKhensys.Infrastructure.Persistence;
 using PruebaKhensys.Infrastructure.Persistence.Context;
+using PruebaKhensys.Infrastructure.Validators;
 
 namespace PruebaKhensys.Api
 {
@@ -30,7 +31,19 @@ namespace PruebaKhensys.Api
             services.AddControllers();
 
             services.AddDbContext<PruebaKhensysContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AppContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("PruebaKhensysContext")));
+
+            //
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IAppMapper, AppMapper>();
+
+            //Services
+            services.AddScoped<IEmployeesService, EmployeesService>();
+            services.AddScoped<IRolesService, RolesService>();
+
+            //Validations:
+            services.AddSingleton<IValidator<RoleDTO>, RoleValidator>();
+            services.AddSingleton<IValidator<EmployeeDTO>, EmployeeValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

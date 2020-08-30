@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using PruebaKhensys.Core.Entities;
 
 namespace PruebaKhensys.Core.Interfaces.Persistence
 {
@@ -15,13 +14,13 @@ namespace PruebaKhensys.Core.Interfaces.Persistence
         Task AddRangeAsync(IEnumerable<TEntity> entities);
 
         //Get:
-        TEntity GetById(int id, IEnumerable<string> entitiesToInclude);
-        Task<TEntity> GetByIdAsync(int id, IEnumerable<string> entitiesToInclude);
+        TEntity GetById(int id, IEnumerable<string> entitiesToInclude = null);
+        Task<TEntity> GetByIdAsync(int id, IEnumerable<string> entitiesToInclude = null);
         //Add pagination:
-        IEnumerable<TEntity> GetAll(IEnumerable<Expression<Func<TEntity, bool>>> predicates, IEnumerable<string> entitiesToInclude);
-        Task<IEnumerable<TEntity>> GetAllAsync(IEnumerable<Expression<Func<TEntity, bool>>> predicates, IEnumerable<string> entitiesToInclude);
-        TEntity Find(IEnumerable<Expression<Func<TEntity, bool>>> predicates, IEnumerable<string> entitiesToInclude);
-        Task<TEntity> FindAsync(IEnumerable<Expression<Func<TEntity, bool>>> predicates, IEnumerable<string> entitiesToInclude);
+        IEnumerable<TEntity> GetAll(IEnumerable<Expression<Func<TEntity, bool>>> predicates = null, IEnumerable<string> entitiesToInclude = null);
+        Task<IEnumerable<TEntity>> GetAllAsync(IEnumerable<Expression<Func<TEntity, bool>>> predicates = null, IEnumerable<string> entitiesToInclude = null);
+        TEntity Find(IEnumerable<Expression<Func<TEntity, bool>>> predicates = null, IEnumerable<string> entitiesToInclude = null);
+        Task<TEntity> FindAsync(IEnumerable<Expression<Func<TEntity, bool>>> predicates = null, IEnumerable<string> entitiesToInclude = null);
 
         //Update:
         void Update(TEntity entity);
