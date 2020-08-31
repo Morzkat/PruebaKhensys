@@ -2,7 +2,7 @@
 
 namespace PruebaKhensys.Core.Interfaces.Persistence.Repositories
 {
-    public interface IRolesRepositories : IRepository<Role>
+    public interface IExcuseTypesRepositories : IRepository<ExcuseType>
     {
     }
 }

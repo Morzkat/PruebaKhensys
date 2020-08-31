@@ -3,9 +3,9 @@ using PruebaKhensys.Core.Entities.DTOS;
 
 namespace PruebaKhensys.Infrastructure.Validators
 {
-    public class RoleValidator : AbstractValidator<RoleDTO>
+    public class ExcuseTypeValidator : AbstractValidator<ExcuseTypeDTO>
     {
-        public RoleValidator()
+        public ExcuseTypeValidator()
         {
             RuleFor(x => x.Description).NotNull();
         }

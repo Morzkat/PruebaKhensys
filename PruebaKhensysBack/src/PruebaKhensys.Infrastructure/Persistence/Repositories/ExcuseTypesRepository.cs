@@ -4,9 +4,9 @@ using PruebaKhensys.Core.Interfaces.Persistence.Repositories;
 
 namespace PruebaKhensys.Infrastructure.Persistence.Repositories
 {
-    public class RoleRepository : Repository<Role>, IRolesRepositories
+    public class ExcuseTypeRepository : Repository<ExcuseType>, IExcuseTypesRepositories
     {
-        public RoleRepository(DbSet<Role> roles) : base (roles)
+        public ExcuseTypeRepository(DbSet<ExcuseType> excuseTypes) : base (excuseTypes)
         {
 
         }

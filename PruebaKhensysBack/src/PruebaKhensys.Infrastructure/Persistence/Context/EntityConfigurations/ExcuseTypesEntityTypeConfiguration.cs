@@ -7,9 +7,9 @@ using System.Text;
 
 namespace PruebaKhensys.Infrastructure.Persistence.Context.EntityConfigurations
 {
-    public class RolesEntityTypeConfiguration : IEntityTypeConfiguration<Role>
+    public class ExcuseTypesEntityTypeConfiguration : IEntityTypeConfiguration<ExcuseType>
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
+        public void Configure(EntityTypeBuilder<ExcuseType> builder)
         {
             builder.Property(p => p.Description).IsRequired();
         }

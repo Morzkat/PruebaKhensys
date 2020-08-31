@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace PruebaKhensys.Core.Interfaces.Services
 {
-    public interface IRolesService
+    public interface IExcuseTypesService
     {
-        Task<Result<HttpResponse>> AddRole(RoleDTO roleDTO);
-        Task<Result<HttpResponse>> DeleteRole(int roleId);
-        Task<Result<HttpResponse>> UpdateRole(RoleDTO roleDTO);
-        Task<Result<HttpResponseWithElement<RoleDTO>>> GetRole(int roleId);
-        Task<Result<HttpResponseWithList<RoleDTO>>> GetRoles(Pagination pagination = null);
+        Task<Result<HttpResponse>> AddExcuseType(ExcuseTypeDTO excuseTypeDTO);
+        Task<Result<HttpResponse>> DeleteExcuseType(int excuseTypeId);
+        Task<Result<HttpResponse>> UpdateExcuseType(ExcuseTypeDTO excuseTypeDTO);
+        Task<Result<HttpResponseWithElement<ExcuseTypeDTO>>> GetExcuseType(int excuseTypeId);
+        Task<Result<HttpResponseWithList<ExcuseTypeDTO>>> GetExcuseTypes(Pagination pagination = null);
     }
 }

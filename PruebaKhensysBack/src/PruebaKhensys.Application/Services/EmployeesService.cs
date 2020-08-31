@@ -38,10 +38,10 @@ namespace PruebaKhensys.Application.Services
                         return HttpResponseHelper.NewResult(HttpStatusCode.Conflict, HttpResponseHelper.NewHttpResponse(error: "The employee already exist."));
 
                     var employee = _appMapper.MapToANew<EmployeeDTO, Employee>(employeeDTO);
-                    var role = _unitOfWork.RolesRepositories.GetById(employee.Role.Id);
+                    var excuseType = _unitOfWork.ExcuseTypesRepositories.GetById(employee.ExcuseType.Id);
                     
-                    if (role != null)
-                        employee.Role = role;
+                    if (excuseType != null)
+                        employee.ExcuseType = excuseType;
                     
                     await _unitOfWork.EmployeesRepositories.AddAsync(employee);
                     var transactionNumber = await _unitOfWork.CompleteAsync();
@@ -88,7 +88,7 @@ namespace PruebaKhensys.Application.Services
                 if (!exist)
                     return HttpResponseHelper.NewResult(HttpStatusCode.BadRequest, HttpResponseHelper.NewHttpResponseWithElement<EmployeeDTO>(error: "The employee doesn't exist."));
 
-                var employee = await _unitOfWork.EmployeesRepositories.GetByIdAsync(employeeId, new List<string> { "Role" });
+                var employee = await _unitOfWork.EmployeesRepositories.GetByIdAsync(employeeId, new List<string> { "ExcuseType" });
                 var employeeDTO = _appMapper.MapToANew<Employee, EmployeeDTO>(employee);
                 //Logger:
                 return HttpResponseHelper.NewResult(HttpStatusCode.Ok, HttpResponseHelper.NewHttpResponseWithElement(element: employeeDTO, success: true));
@@ -105,7 +105,7 @@ namespace PruebaKhensys.Application.Services
         {
             try
             {
-                var employees = await _unitOfWork.EmployeesRepositories.GetAllAsync(entitiesToInclude: new List<string> { "Role" });
+                var employees = await _unitOfWork.EmployeesRepositories.GetAllAsync(entitiesToInclude: new List<string> { "ExcuseType" });
                 var employeesDTO = _appMapper.MapToANew<IEnumerable<Employee>, IEnumerable<EmployeeDTO>>(employees);
                 //Logger:
                 return HttpResponseHelper.NewResult(HttpStatusCode.Ok, HttpResponseHelper.NewHttpResponseList(elements: employeesDTO, success: true));
@@ -128,9 +128,9 @@ namespace PruebaKhensys.Application.Services
                     if (!exist)
                         return HttpResponseHelper.NewResult(HttpStatusCode.Conflict, HttpResponseHelper.NewHttpResponse(error: "The employee doesn't exist."));
                    
-                    var rolExist = await _unitOfWork.RolesRepositories.ExistAsync(r => r.Id == employeeDTO.Role.Id);
+                    var rolExist = await _unitOfWork.ExcuseTypesRepositories.ExistAsync(r => r.Id == employeeDTO.ExcuseType.Id);
                     if (!rolExist)
-                        return HttpResponseHelper.NewResult(HttpStatusCode.Conflict, HttpResponseHelper.NewHttpResponse(error: "The role doesn't exist."));
+                        return HttpResponseHelper.NewResult(HttpStatusCode.Conflict, HttpResponseHelper.NewHttpResponse(error: "The excuseType doesn't exist."));
 
                     var employee = _appMapper.MapToANew<EmployeeDTO, Employee>(employeeDTO);
                     await _unitOfWork.EmployeesRepositories.UpdateAsync(employee);

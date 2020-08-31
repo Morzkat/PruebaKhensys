@@ -39,10 +39,10 @@ namespace PruebaKhensys.Api
 
             //Services
             services.AddScoped<IEmployeesService, EmployeesService>();
-            services.AddScoped<IRolesService, RolesService>();
+            services.AddScoped<IExcuseTypesService, ExcuseTypesService>();
 
             //Validations:
-            services.AddSingleton<IValidator<RoleDTO>, RoleValidator>();
+            services.AddSingleton<IValidator<ExcuseTypeDTO>, ExcuseTypeValidator>();
             services.AddSingleton<IValidator<EmployeeDTO>, EmployeeValidator>();
 
             var client = Configuration.GetSection("ClientHost").Value;

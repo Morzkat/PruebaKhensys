@@ -6,7 +6,7 @@ namespace PruebaKhensys.Core.Entities.Models
     {
         public string Name { get; set; }
         public string LastName { get; set; }
-        public Role Role { get; set; }
+        public ExcuseType ExcuseType { get; set; }
         public DateTime Date { get; set; }
     }
 }

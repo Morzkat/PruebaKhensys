@@ -8,7 +8,7 @@ namespace PruebaKhensys.Infrastructure.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IRolesRepositories RolesRepositories { get; set; }
+        public IExcuseTypesRepositories ExcuseTypesRepositories { get; set; }
         public IEmployeesRepositories EmployeesRepositories { get; set; }
         private readonly PruebaKhensysContext _pruebaKhensysContext;
 
@@ -17,7 +17,7 @@ namespace PruebaKhensys.Infrastructure.Persistence
             _pruebaKhensysContext = pruebaKhensysContext;
 
             //TODO: 
-            RolesRepositories = new RoleRepository(_pruebaKhensysContext.Roles);
+            ExcuseTypesRepositories = new ExcuseTypeRepository(_pruebaKhensysContext.ExcuseTypes);
             EmployeesRepositories = new EmployeeRepository(_pruebaKhensysContext.Employees);
         }
 

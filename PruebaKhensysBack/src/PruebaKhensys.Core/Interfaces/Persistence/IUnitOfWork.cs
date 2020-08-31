@@ -6,7 +6,7 @@ namespace PruebaKhensys.Core.Interfaces.Persistence
 {
     public interface IUnitOfWork :  IDisposable
     {
-        IRolesRepositories RolesRepositories { get; set; }
+        IExcuseTypesRepositories ExcuseTypesRepositories { get; set; }
         IEmployeesRepositories EmployeesRepositories { get; set; }
 
         int Complete();

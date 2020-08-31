@@ -29,10 +29,7 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 8, 31, 9, 17, 43, 490, DateTimeKind.Local).AddTicks(3738));
-
-                    b.Property<int?>("ExcuseTypeId")
-                        .HasColumnType("int");
+                        .HasDefaultValue(new DateTime(2020, 8, 29, 23, 36, 46, 725, DateTimeKind.Local).AddTicks(8142));
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -41,6 +38,9 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ExcuseTypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -63,18 +63,6 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ExcuseTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Enfermedad"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Diligencias"
-                        });
                 });
 
             modelBuilder.Entity("PruebaKhensys.Core.Entities.Models.Employee", b =>

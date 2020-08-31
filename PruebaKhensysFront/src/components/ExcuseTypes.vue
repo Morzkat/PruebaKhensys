@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Roles',
+  name: 'ExcuseTypes',
   data () {
     return {
       msg: ''
