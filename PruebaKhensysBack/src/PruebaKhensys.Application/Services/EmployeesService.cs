@@ -38,6 +38,11 @@ namespace PruebaKhensys.Application.Services
                         return HttpResponseHelper.NewResult(HttpStatusCode.Conflict, HttpResponseHelper.NewHttpResponse(error: "The employee already exist."));
 
                     var employee = _appMapper.MapToANew<EmployeeDTO, Employee>(employeeDTO);
+                    var role = _unitOfWork.RolesRepositories.GetById(employee.Role.Id);
+                    
+                    if (role != null)
+                        employee.Role = role;
+                    
                     await _unitOfWork.EmployeesRepositories.AddAsync(employee);
                     var transactionNumber = await _unitOfWork.CompleteAsync();
 

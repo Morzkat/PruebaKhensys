@@ -9,6 +9,7 @@ namespace PruebaKhensys.Infrastructure.Validators
         {
             RuleFor(x => x.Name).NotNull();
             RuleFor(x => x.LastName).NotNull();
+            RuleFor(x => x.Role).NotNull();
             RuleFor(x => x.Role).SetValidator(roleValidator);
         }
     }

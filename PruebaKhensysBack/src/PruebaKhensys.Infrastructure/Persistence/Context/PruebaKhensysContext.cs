@@ -18,6 +18,19 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context
         {
             modelBuilder.ApplyConfiguration(new RolesEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeesEntityTypeConfiguration());
+
+            modelBuilder.Seed();
+        }
+    }
+
+    public static class ModelBuilderExtensions
+    {
+        public static void Seed(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>().HasData(
+                new Role { Description = "Enfermedad" },
+                new Role { Description = "Diligencias" }
+            );
         }
     }
 }

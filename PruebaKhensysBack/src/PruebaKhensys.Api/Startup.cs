@@ -44,6 +44,20 @@ namespace PruebaKhensys.Api
             //Validations:
             services.AddSingleton<IValidator<RoleDTO>, RoleValidator>();
             services.AddSingleton<IValidator<EmployeeDTO>, EmployeeValidator>();
+
+            var client = Configuration.GetSection("ClientHost").Value;
+
+            // Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                   builder => builder
+                    .WithOrigins(Configuration.GetSection("ClientHost").Value)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                  );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +70,7 @@ namespace PruebaKhensys.Api
 
             app.UseHttpsRedirection();
 
+            app.UseCors("CorsPolicy");
             app.UseRouting();
 
             app.UseAuthorization();
