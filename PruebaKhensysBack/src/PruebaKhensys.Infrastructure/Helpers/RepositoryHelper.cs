@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace PruebaKhensys.Infrastructure.Helpers
 {
@@ -14,7 +13,7 @@ namespace PruebaKhensys.Infrastructure.Helpers
         {
             if (entitiesToInclude != null && entitiesToInclude.Any())
                 foreach (var entity in entitiesToInclude)
-                    source.Include(entity);
+                    source = source.Include(entity);
 
             return source;
         }
@@ -23,7 +22,7 @@ namespace PruebaKhensys.Infrastructure.Helpers
         {
             if (predicates != null && predicates.Any())
                 foreach (var predicate in predicates)
-                    source.Where(predicate);
+                    source = source.Where(predicate);
 
             return source;
         }
