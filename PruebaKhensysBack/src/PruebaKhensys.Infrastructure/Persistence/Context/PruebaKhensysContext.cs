@@ -28,8 +28,8 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ExcuseType>().HasData(
-                new ExcuseType { Description = "Enfermedad" },
-                new ExcuseType { Description = "Diligencias" }
+                new ExcuseType { Id = -1, Description = "Enfermedad" },
+                new ExcuseType { Id = 0, Description = "Diligencias" }
             );
         }
     }

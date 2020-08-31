@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PruebaKhensys.Infrastructure.Persistence.Context;
 
 namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
 {
     [DbContext(typeof(PruebaKhensysContext))]
-    partial class PruebaKhensysContextModelSnapshot : ModelSnapshot
+    [Migration("20200830033647_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,17 +41,17 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoleId")
+                    b.Property<int?>("ExcuseTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+                    b.HasIndex("ExcuseTypeId");
 
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("PruebaKhensys.Core.Entities.Models.Role", b =>
+            modelBuilder.Entity("PruebaKhensys.Core.Entities.Models.ExcuseType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,14 +64,14 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("ExcuseTypes");
                 });
 
             modelBuilder.Entity("PruebaKhensys.Core.Entities.Models.Employee", b =>
                 {
-                    b.HasOne("PruebaKhensys.Core.Entities.Models.Role", "Role")
+                    b.HasOne("PruebaKhensys.Core.Entities.Models.ExcuseType", "ExcuseType")
                         .WithMany()
-                        .HasForeignKey("RoleId");
+                        .HasForeignKey("ExcuseTypeId");
                 });
 #pragma warning restore 612, 618
         }

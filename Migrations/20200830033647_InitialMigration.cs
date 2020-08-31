@@ -8,7 +8,7 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Roles",
+                name: "ExcuseTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,7 +17,7 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Roles", x => x.Id);
+                    table.PrimaryKey("PK_ExcuseTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -28,24 +28,24 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
-                    RoleId = table.Column<int>(nullable: true),
+                    ExcuseTypeId = table.Column<int>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 8, 29, 23, 36, 46, 725, DateTimeKind.Local).AddTicks(8142))
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employees_Roles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "Roles",
+                        name: "FK_Employees_ExcuseTypes_ExcuseTypeId",
+                        column: x => x.ExcuseTypeId,
+                        principalTable: "ExcuseTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_RoleId",
+                name: "IX_Employees_ExcuseTypeId",
                 table: "Employees",
-                column: "RoleId");
+                column: "ExcuseTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -54,7 +54,7 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context.Migrations
                 name: "Employees");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "ExcuseTypes");
         }
     }
 }
