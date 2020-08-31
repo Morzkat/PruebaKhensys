@@ -11,12 +11,12 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context
 
         }
 
-        public DbSet<Role> Roles { get; set; }
+        public DbSet<ExcuseType> ExcuseTypes { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new RolesEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ExcuseTypesEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeesEntityTypeConfiguration());
 
             modelBuilder.Seed();
@@ -27,9 +27,9 @@ namespace PruebaKhensys.Infrastructure.Persistence.Context
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>().HasData(
-                new Role { Description = "Enfermedad" },
-                new Role { Description = "Diligencias" }
+            modelBuilder.Entity<ExcuseType>().HasData(
+                new ExcuseType { Description = "Enfermedad" },
+                new ExcuseType { Description = "Diligencias" }
             );
         }
     }
