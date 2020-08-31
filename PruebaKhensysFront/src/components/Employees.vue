@@ -13,8 +13,8 @@
                   <b-form-input id="input-1" v-model="employee.lastName" type="text" required placeholder="Enter lastName"></b-form-input>
                 </b-form-group>
 
-                <b-form-group id="input-group-1" label="Role:" label-for="input-1" description="Role">
-                  <b-form-select id="input-3" v-model="employee.role" :options="roles" required>
+                <b-form-group id="input-group-1" label="ExcuseType:" label-for="input-1" description="ExcuseType">
+                  <b-form-select id="input-3" v-model="employee.excuseType" :options="excuseTypes" required>
                   </b-form-select>
                 </b-form-group>
 
@@ -89,7 +89,7 @@ export default {
       }
     },
     onReset: function () {
-      this.employee = { id: null, name: '', lastName: '', role: null, date: '' }
+      this.employee = { id: null, name: '', lastName: '', excuseType: null, date: '' }
       this.isEditing = false
     },
     editEmployee: function (employee) {
@@ -116,10 +116,10 @@ export default {
   data: function () {
     return {
       showModal: true,
-      columns: ['Id', 'Name', 'LastName', 'Role', 'Date'],
+      columns: ['Id', 'Name', 'LastName', 'ExcuseType', 'Date'],
       employees: [],
-      employee: { id: undefined, name: '', lastName: '', role: null, date: '' },
-      roles: [ { value: null, text: 'Please select an option' } ],
+      employee: { id: undefined, name: '', lastName: '', excuseType: null, date: '' },
+      excuseTypes: [ { value: null, text: 'Please select an option' } ],
       isEditing: false,
       dismissSecs: 5,
       dismissCountDown: 0,
@@ -134,9 +134,9 @@ export default {
       // TODO: Log message
     }
 
-    const rolesRequestResult = await httpService.get('roles')
-    if (rolesRequestResult.success) {
-      this.roles = [ ...this.roles, ...rolesRequestResult.list.map((x) => {
+    const excuseTypesRequestResult = await httpService.get('excuseTypes')
+    if (excuseTypesRequestResult.success) {
+      this.excuseTypes = [ ...this.excuseTypes, ...excuseTypesRequestResult.list.map((x) => {
         return { text: x.description, value: x }
       })]
     } else {

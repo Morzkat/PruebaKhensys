@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Employees from '@/components/Employees'
-import Roles from '@/components/Roles'
+import ExcuseTypes from '@/components/ExcuseTypes'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: Employees
     },
     {
-      path: '/roles',
-      name: 'roles',
-      component: Roles
+      path: '/excuseTypes',
+      name: 'excuseTypes',
+      component: ExcuseTypes
     }
   ]
 })

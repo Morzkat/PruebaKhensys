@@ -15,7 +15,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Roles</a>
+          <a class="nav-link" href="#">ExcuseTypes</a>
         </li>
       </ul>
     </div>
