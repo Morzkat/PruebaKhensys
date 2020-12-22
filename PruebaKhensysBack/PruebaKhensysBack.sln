@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaKhensys.Api", "PruebaKhensys.Api\PruebaKhensys.Api.csproj", "{1E94071B-EF8F-4A2B-AA73-D339994E9441}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaKhensys.Api", "src/PruebaKhensys.Api\PruebaKhensys.Api.csproj", "{1E94071B-EF8F-4A2B-AA73-D339994E9441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaKhensys.Core", "src/PruebaKhensys.Core\PruebaKhensys.Core.csproj", "{66A6BB1C-62A7-4969-AF3C-B8E4A49380ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaKhensys.Infrastructure", "src/PruebaKhensys.Infrastructure\PruebaKhensys.Infrastructure.csproj", "{9F73A84F-9E46-42C3-86D7-F1CC818EBC41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaKhensys.Application", "src/PruebaKhensys.Application\PruebaKhensys.Application.csproj", "{C9C05C63-569B-4DAA-98DD-E08612E81BBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{1E94071B-EF8F-4A2B-AA73-D339994E9441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E94071B-EF8F-4A2B-AA73-D339994E9441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E94071B-EF8F-4A2B-AA73-D339994E9441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A6BB1C-62A7-4969-AF3C-B8E4A49380ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A6BB1C-62A7-4969-AF3C-B8E4A49380ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A6BB1C-62A7-4969-AF3C-B8E4A49380ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A6BB1C-62A7-4969-AF3C-B8E4A49380ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F73A84F-9E46-42C3-86D7-F1CC818EBC41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F73A84F-9E46-42C3-86D7-F1CC818EBC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F73A84F-9E46-42C3-86D7-F1CC818EBC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F73A84F-9E46-42C3-86D7-F1CC818EBC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C05C63-569B-4DAA-98DD-E08612E81BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C05C63-569B-4DAA-98DD-E08612E81BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C05C63-569B-4DAA-98DD-E08612E81BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C05C63-569B-4DAA-98DD-E08612E81BBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
